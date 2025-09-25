@@ -40,9 +40,7 @@ cp -a . "${REPO_DIR}"
 cd "${REPO_DIR}" || die "Failed to cd to ${REPO_DIR}"
 
 mapfile -t files < <(git grep --files-with-matches replace-this-with-the-track-slug)
-for file in "${files[@]}"; do
-    sed -i "s/replace-this-with-the-track-slug/${SLUG}/g" "${file}"
-done
+sed -i "s/replace-this-with-the-track-slug/${SLUG}/g" "${files[@]}"
 
 mapfile -t files < <(git grep --files-with-matches replace-this-with-the-track-name)
 for file in "${files[@]}"; do
