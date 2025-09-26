@@ -43,9 +43,7 @@ mapfile -t files < <(git grep --files-with-matches replace-this-with-the-track-s
 sed -i "s/replace-this-with-the-track-slug/${SLUG}/g" "${files[@]}"
 
 mapfile -t files < <(git grep --files-with-matches replace-this-with-the-track-name)
-for file in "${files[@]}"; do
-    sed -i "s/replace-this-with-the-track-name/${LANGUAGE}/g" "${file}"
-done
+sed -i "s/replace-this-with-the-track-name/${LANGUAGE}/g" "${files[@]}"
 
 rm -f bin/bootstrap.sh
 rm -rf .git
